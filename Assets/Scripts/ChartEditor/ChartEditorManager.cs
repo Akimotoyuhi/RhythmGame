@@ -8,7 +8,17 @@ using UnityEngine;
 public class ChartEditorManager : MonoBehaviour
 {
     private AudioClip m_music;
+    private string m_stageName;
+    private float m_bpm;
+    private float m_offset;
     public static ChartEditorManager Instance { get; private set; }
+    public AudioClip SetMusic { set => m_music = value; }
+    public string SetStageName { set => m_stageName = value; }
+    public float SetBPM { set => m_bpm = value; }
+    public float SetOffset { set => m_offset = value; }
+
+    //è¨êﬂ * îèéq * 60 / BPM = í∑Ç≥
+    //è¨êﬂ = BPM * í∑Ç≥ / 60 * îèéq
 
     private void Awake()
     {
@@ -18,10 +28,5 @@ public class ChartEditorManager : MonoBehaviour
     private void Start()
     {
         
-    }
-
-    public void SetMusic(AudioClip audioClip)
-    {
-        m_music = audioClip;
     }
 }
